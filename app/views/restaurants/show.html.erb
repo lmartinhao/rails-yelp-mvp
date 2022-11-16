@@ -7,8 +7,18 @@
 <ul class='list-group'>
   <% @restaurant.reviews.each do |review| %>
     <li class='list-group-item'>
-      <%= review.content %>
-      <%= link_to "Remove", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <small>
+        <% count = 0 %>
+        <% 5.times do %>
+          <% if review.rating > count %>
+            <i class="fa-solid fa-star" style="color: #FBC407;"></i>
+          <% else %>
+            <i class="fa-regular fa-star" style="color: #FBC407;"></i>
+          <% end %>
+        <% count += 1 %>
+        <% end %>
+      </small>
+      <p><%= review.content %></p>
     </li>
   <% end %>
 </ul>
@@ -16,8 +26,5 @@
 <p><%= link_to 'New Review', new_restaurant_review_path(@restaurant), class: 'btn btn-success' %></p>
 
 <div>
-  <%= link_to "info about chef", chef_restaurant_path(@restaurant) %> |
-  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
   <%= link_to "Back to restaurants", restaurants_path %>
-  <%= button_to "Destroy this restaurant", @restaurant, method: :delete %>
 </div>

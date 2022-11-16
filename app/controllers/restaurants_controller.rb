@@ -30,21 +30,6 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /restaurants/1
-  def update
-    if @restaurant.update(restaurant_params)
-      redirect_to @restaurant, notice: "Restaurant was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /restaurants/1
-  def destroy
-    @restaurant.destroy
-    redirect_to restaurants_url, notice: "Restaurant was successfully destroyed."
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -54,6 +39,6 @@ class RestaurantsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :rating)
+    params.require(:restaurant).permit(:name, :address, :phone_number, :category)
   end
 end
