@@ -1,8 +1,8 @@
 <div id="<%= dom_id restaurant %>">
-  <p>
-    <strong>Name:</strong>
+  <h3>
     <%= restaurant.name.capitalize %>
-  </p>
+  </h3>
+  <hr>
 
   <p>
     <strong>Category:</strong>
@@ -10,12 +10,12 @@
   </p>
 
   <p>
-    <strong>Address:</strong>
-    <%= restaurant.address.capitalize %>
+    <small><strong>Address:</strong></small>
+    <small><%= restaurant.address.capitalize %></small>
   </p>
 
   <p>
-    <strong>Phone Number:</strong>
-    <%= restaurant.phone_number %>
+    <small><strong>Phone Number:</strong></small>
+    <small><%= restaurant.phone_number %></small>
   </p>
 </div>

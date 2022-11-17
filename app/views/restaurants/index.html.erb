@@ -2,14 +2,21 @@
 
 <h1>Restaurants</h1>
 
-<%= link_to "New restaurant", new_restaurant_path %>
+<%= link_to "New restaurant", new_restaurant_path, class:"btn btn-outline-success btn-sm" %>
 <hr>
 
-<div id="restaurants">
+
+<div id="restaurants" class="d-flex justify-content-around flex-wrap">
   <% @restaurants.each do |restaurant| %>
-    <%= render restaurant %>
-    <p>
-      <%= link_to "See details", restaurant %>
-    </p>
+    <div class="card col-6 shadow p-3 mb-5 bg-body rounded text-center" style="width: 18rem">
+      <div class="card-body">
+        <p class="card-text">
+          <%= render restaurant %>
+        </p>
+        <div class="position-absolute top-100 start-50 translate-middle">
+          <%= link_to "See details", restaurant, class:"btn btn-dark" %>
+        </div>
+     </div>
+   </div>
   <% end %>
 </div>
